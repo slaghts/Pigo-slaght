@@ -5,8 +5,13 @@ __author__ = 'Spencer'
 
 class Pigo:
 
-    isMoving = False
-    servoPos = 90
+    #####
+    ##### Basic Status And Methods
+    #####
+
+    status = {"ismoving" : False, "servo" : 90, "leftspeed" : 175,
+              "rightspeed" : 175}
+
 
     def __init__(self):
         print "as you can see I am a pigo pumpkin"
@@ -22,6 +27,14 @@ class Pigo:
         while fwd() != 1:
             time.sleep(.1)
             print "I am sorry but this bitch keeps ranting so I can not keep going"
+
+    #####
+    ##### Advanced Status And Methods
+    #####
+
+#####
+##### Main app starts here
+#####
 
 Moto = Pigo()
 Moto.fwd()
