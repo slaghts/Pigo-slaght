@@ -1,4 +1,8 @@
+#gopigo autonomous instantiated class
+#http://www.dexterindustries.com/GoPiGo/programming/python-programming-for-the-raspberry-pi-gopigo/
+
 from gopigo import *
+from turtle import *
 import time
 
 #global variable
@@ -13,7 +17,7 @@ class Pigo:
     #####
 
     status = {"ismoving" : False, "servo" : 90, "leftspeed" : 175,
-              "rightspeed" : 175, "dist" : 100}
+              "rightspeed" : 175, "dist" : 100, "volt" : 2}
 
 
     def __init__(self):
@@ -38,8 +42,13 @@ class Pigo:
         for x in range(3):
             bwd()
 
+# check if conditions are safe to continue opperating
     def keepGoing(self):
         if self.status['dist'] < STOP_DIST:
+            print "obstacle detected stopping imediatly"
+            return False
+        elif self.status['volt'] < STOP_DIST:
+            print "unsafe voltage detected: " + str(volt())
             return False
         else
             return True
@@ -47,6 +56,43 @@ class Pigo:
     def checkDist():
         self.status['dist'] = us_dist(15)
             print "I see something" + str(self.status['dist']) + "mm away"
+
+    def checkVolt():
+        self.status['volt'] = us_volt(14)
+            print "its got voltage over 14!!!!!!!!"
+
+    def circleRight(self):
+        for x in range(5):
+            right_rot()
+        time.sleep(2)
+        self.stop()
+
+    def circleLeft(self):
+        for x in range(5):
+            left_rot()
+        time.sleep(2)
+        self.stop()
+
+    def blink(self):
+        for x in range(5):
+            led_on(right,left)
+            led_off(right,left)
+        time.sleep(2)
+        self.stop()
+
+    def shuffle(self):
+        for x in range(5):
+            left_rot()
+            right_rot()
+        time.sleep(2)
+        self.stop()
+
+    def servoShake(self):
+         for x in range(5):
+            servo(135)
+            servo(45)
+        time.sleep(2)
+        self.stop()
 
     #####
     ##### Advanced Status And Methods
@@ -56,19 +102,22 @@ class Pigo:
         self.status['dist'] = us_dist(15)
         print "I just want to dance!"
         if self.keepGoing():
-            self.circleRight()
-            self.circleLeft()
-            self.suffle()
-            self.servoShake()
-            self.blink()
+            circleRight()
+            circleLeft()
+            shuffle()
+            servoShake()
+            blink()
 
 #####
 ##### Main app starts here
 #####
-Moto = Pigo()
-while Moto.keepGoing():
-    Moto.fwd()
+ziggypi = Pigo()
+while ziggypi.keepGoing():
+    ziggypi.fwd()
     Time.sleep(2)
-    Moto.stop()
+    ziggypi.stop()
 
-Moto.stop()
+while ziggypi.keepGoing():
+    ziggypi.dance()
+
+ziggypi.stop()
