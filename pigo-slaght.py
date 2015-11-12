@@ -64,32 +64,33 @@ class Pigo:
     def circleRight(self):
         for x in range(5):
             right_rot()
-        time.sleep(2)
+        time.sleep(.5)
         self.stop()
 
     def circleLeft(self):
         for x in range(5):
             left_rot()
-        time.sleep(2)
+        time.sleep(.5)
         self.stop()
 
     def blink(self):
         for x in range(5):
             led_on(right,left)
             led_off(right,left)
-        time.sleep(2)
+        time.sleep(.5)
         self.stop()
 
     def shuffle(self):
         for x in range(5):
             left_rot()
             right_rot()
-        time.sleep(2)
+        time.sleep(.5)
         self.stop()
 
     def servoShake(self):
          for x in range(5):
             servo(135)
+            time.sleep(.1)
             servo(45)
         time.sleep(2)
         self.stop()
@@ -98,25 +99,28 @@ class Pigo:
     ##### Advanced Status And Methods
     #####
 
+    def safeDrive(self):
+        self.fwd()
+        while self.keepGoing():
+            self.checkDist()
+        self.sleep(2)
+
+
     def dance(self):
         self.status['dist'] = us_dist(15)
         print "I just want to dance!"
         if self.keepGoing():
-            circleRight()
-            circleLeft()
-            shuffle()
-            servoShake()
-            blink()
+            circleRight(self)
+            circleLeft(self)
+            shuffle(self)
+            servoShake(self)
+            blink(self)
 
 #####
 ##### Main app starts here
 #####
 ziggypi = Pigo()
-while ziggypi.keepGoing():
-    ziggypi.fwd()
-    Time.sleep(2)
-    ziggypi.stop()
-
+ziggypi.safeDrive()
 while ziggypi.keepGoing():
     ziggypi.dance()
 
