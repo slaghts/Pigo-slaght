@@ -50,7 +50,7 @@ class Pigo:
         elif self.status['volt'] < STOP_DIST:
             print "unsafe voltage detected: " + str(volt())
             return False
-        else
+        else:
             return True
 
     def checkDist():
