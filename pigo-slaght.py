@@ -53,11 +53,11 @@ class Pigo:
         else:
             return True
 
-    def checkDist():
+    def checkDist(self):
         self.status['dist'] = us_dist(15)
         print "I see something" + str(self.status['dist']) + "mm away"
 
-    def checkVolt():
+    def checkVolt(self):
         self.status['volt'] = us_volt(14)
         print "its got voltage over 14!!!!!!!!"
 
@@ -88,11 +88,11 @@ class Pigo:
         self.stop()
 
     def servoShake(self):
-         for x in range(5):
+        for x in range(5):
             servo(135)
             time.sleep(.1)
             servo(45)
-        time.sleep(2)
+        time.sleep(.5)
         self.stop()
 
     #####
