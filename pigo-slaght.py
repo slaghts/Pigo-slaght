@@ -25,19 +25,19 @@ class Pigo:
         self.checkDist()
 
     def stop(self):
-        self.isMoving = false
+        self.status["ismoving"] = false
         print "holy shit"
         for x in range(3):
             stop()
 
     def fwd(self):
-        self.["ismoving"] = True
+        self.status["ismoving"] = True
         print "lets a go"
         for x in range(3):
             fwd()
 
     def bwd(self):
-        self.["ismoving"] = True
+        self.status["ismoving"] = True
         print "back it up please"
         for x in range(3):
             bwd()
