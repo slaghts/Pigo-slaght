@@ -25,7 +25,7 @@ class Pigo:
         self.checkDist()
 
     def stop(self):
-        self.status["ismoving"] = false
+        self.status["ismoving"] = False
         print "holy shit"
         for x in range(3):
             stop()
