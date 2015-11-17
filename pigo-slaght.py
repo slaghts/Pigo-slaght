@@ -56,6 +56,9 @@ class Pigo:
     def checkDist(self):
         self.status['dist'] = us_dist(15)
         print "I see something" + str(self.status['dist']) + "mm away"
+        if not self.keepGoing():
+            print "emergency sto Ho Lee Fuk"
+            self.stop()
 
     def checkVolt(self):
         self.status['volt'] = volt()
