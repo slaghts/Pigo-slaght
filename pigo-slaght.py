@@ -47,7 +47,7 @@ class Pigo:
         if self.status['dist'] < STOP_DIST:
             print "obstacle detected stopping imediatly"
             return False
-        elif self.status['volt'] < STOP_DIST:
+        elif volt() > 14 or volt() < 6:
             print "unsafe voltage detected: " + str(volt())
             return False
         else:
@@ -58,7 +58,7 @@ class Pigo:
         print "I see something" + str(self.status['dist']) + "mm away"
 
     def checkVolt(self):
-        self.status['volt'] = us_volt(14)
+        self.status['volt'] = volt()
         print "its got voltage over 14!!!!!!!!"
 
     def circleRight(self):
