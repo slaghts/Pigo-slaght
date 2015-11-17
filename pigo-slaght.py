@@ -103,8 +103,12 @@ class Pigo:
         self.fwd()
         while self.keepGoing():
             self.checkDist()
-        self.sleep(2)
+        self.stop()
 
+    def servoSweep(self):
+        for ang in range(20, 160, 5):
+            servo(ang)
+            time.sleep(.1)
 
     def dance(self):
         self.status['dist'] = us_dist(15)
