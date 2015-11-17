@@ -55,11 +55,11 @@ class Pigo:
 
     def checkDist():
         self.status['dist'] = us_dist(15)
-            print "I see something" + str(self.status['dist']) + "mm away"
+        print "I see something" + str(self.status['dist']) + "mm away"
 
     def checkVolt():
         self.status['volt'] = us_volt(14)
-            print "its got voltage over 14!!!!!!!!"
+        print "its got voltage over 14!!!!!!!!"
 
     def circleRight(self):
         for x in range(5):
