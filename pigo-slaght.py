@@ -65,26 +65,26 @@ class Pigo:
         print "its got voltage over 14!!!!!!!!"
 
     def circleRight(self):
+        print "to the right"
         for x in range(5):
             right_rot()
         time.sleep(.5)
         self.stop()
-        print "to the right"
+
 
     def circleLeft(self):
+        print "To the left"
         for x in range(5):
             left_rot()
         time.sleep(.5)
         self.stop()
-        print "to the left"
 
     def blink(self):
+        print "Blinking time!"
         for x in range(5):
-            led_on(right,left)
-            led_off(right,left)
-        time.sleep(.5)
-        self.stop()
-        print "come at me"
+            led_on(1)
+            time.sleep(.08)
+            led_off(1)
 
     def shuffle(self):
         for x in range(5):
@@ -119,7 +119,7 @@ class Pigo:
             time.sleep(.1)
 
     def dance(self):
-        self.status['dist'] = us_dist(15)
+        self.checkDist()
         print "I just want to dance!"
         if self.keepGoing():
             circleRight(self)
@@ -132,8 +132,7 @@ class Pigo:
 ##### Main app starts here
 #####
 ziggypi = Pigo()
-ziggypi.safeDrive()
-while ziggypi.keepGoing():
-    ziggypi.dance()
+
+ziggypi.dance()
 
 ziggypi.stop()
