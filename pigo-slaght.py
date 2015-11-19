@@ -26,7 +26,7 @@ class Pigo:
 
     def stop(self):
         self.status["ismoving"] = False
-        print "holy shit"
+        print "holy stop"
         for x in range(3):
             stop()
 
@@ -57,7 +57,7 @@ class Pigo:
         self.status['dist'] = us_dist(15)
         print "I see something" + str(self.status['dist']) + "mm away"
         if not self.keepGoing():
-            print "emergency sto Ho Lee Fuk"
+            print "emergency stop Ho Lee Fuk"
             self.stop()
 
     def checkVolt(self):
@@ -92,14 +92,16 @@ class Pigo:
         print "twerk"
         for x in range(5):
             left_rot()
+            time.sleep(.5)
             right_rot()
+            time.sleep(.5)
         time.sleep(1)
         self.stop()
 
 
     def servoShake(self):
         print "oh no no no no no"
-        for x in range(5):
+        for x in range(3):
             servo(135)
             time.sleep(.1)
             servo(45)
