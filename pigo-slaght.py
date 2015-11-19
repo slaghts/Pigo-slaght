@@ -69,12 +69,14 @@ class Pigo:
             right_rot()
         time.sleep(.5)
         self.stop()
+        print "to the right"
 
     def circleLeft(self):
         for x in range(5):
             left_rot()
         time.sleep(.5)
         self.stop()
+        print "to the left"
 
     def blink(self):
         for x in range(5):
@@ -82,6 +84,7 @@ class Pigo:
             led_off(right,left)
         time.sleep(.5)
         self.stop()
+        print "come at me"
 
     def shuffle(self):
         for x in range(5):
@@ -89,6 +92,7 @@ class Pigo:
             right_rot()
         time.sleep(.5)
         self.stop()
+        print "twerk"
 
     def servoShake(self):
         for x in range(5):
@@ -97,6 +101,7 @@ class Pigo:
             servo(45)
         time.sleep(.5)
         self.stop()
+        print "oh no no no no no"
 
     #####
     ##### Advanced Status And Methods
