@@ -122,11 +122,11 @@ class Pigo:
         self.checkDist()
         print "I just want to dance!"
         if self.keepGoing():
-            circleRight(self)
-            circleLeft(self)
-            shuffle(self)
-            servoShake(self)
-            blink(self)
+            self.circleRight()
+            self.circleLeft()
+            self.shuffle()
+            self.servoShake()
+            self.blink()
 
 #####
 ##### Main app starts here
