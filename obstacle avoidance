@@ -1,0 +1,58 @@
+turned_right_last=true
+
+def turnTo():
+    print "looking for other options"
+    counter=0
+    for ang in range(20,160,3)
+        if vision[ang]>MIN_DISTANCE:
+            counter+=1
+        else:
+            print "let's restart"
+            counter=0
+        if counter == 10:
+            print "found an option"
+            return ang
+        if ang<90 and turned_right_last=false:
+            enable_encoders()
+            enc_tgt(1,1,ang/15)
+            right_rot()
+            turned_right_last=true
+            time.sleep(1)
+            safeDrive()
+            print "right " + str(ang)
+        else:
+            print "let's restart"
+            counter=0
+        if ang>90 and turned_right_last=true:
+            enable_encoders()
+            enc_tgt(1,1,ang/15)
+            left_rot()
+            turned_right_last=false
+            time.sleep(1)
+            safeDrive()
+            print "left " + str(ang)
+        else:
+            print "let's restart"
+            counter=0
+        elif:
+            print "Bitch please I am trying"
+            turnRound()
+
+def turnRound():
+    print "no option in current view"
+    if turned_right_last=true
+        enable_encoders()
+        enc_tgt(1,1,90)
+        left_rot()
+        turned_right_last=false
+        time.sleep(1)
+        safeDrive()
+        print "no options most turn 90 degrees to the left"
+    elif:
+        enable_encoders()
+        enc_tgt(1,1,90)
+        right_rot()
+        turned_right_last=true
+        time.sleep(1)
+        safeDrive()
+        print "no options most turn 90 degrees to the right"
